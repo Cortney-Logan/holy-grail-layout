@@ -1,0 +1,77 @@
+/* -------------------- Uses grid -------------------- */
+/* https://css-tricks.com/snippets/css/complete-guide-grid/#prop-grid-area */
+
+body {
+  margin: auto;
+
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px;
+
+  height: 100vh;
+}
+/* -------------------- Header -------------------- */
+header {
+  /* see where the div is */
+  border: 1px solid chartreuse;
+
+  text-align: center;
+
+  grid-area: header;
+}
+/* -------------------- Body -------------------- */
+.holygrail-body {
+}
+
+nav {
+  border: 1px solid pink;
+
+  grid-area: nav;
+}
+
+main {
+  border: 1px solid orangered;
+  grid-area: main;
+}
+
+aside {
+  border: 1px solid blue;
+  grid-area: aside;
+}
+
+h3 {
+  text-align: center;
+}
+
+/* -------------------- Footer -------------------- */
+footer {
+  border: 1px solid purple;
+
+  text-align: center;
+
+  grid-area: footer;
+}
+
+/* -------------------- Responsive -------------------- */
+@media (max-width: 768px) {
+  body {
+    grid-template-areas: "header header" "nav nav" "main aside" "footer footer";
+    grid-template-columns: 1fr 0.25fr;
+    grid-template-rows:
+      auto /*header*/
+      minmax(75px, auto) /*nav*/
+      1fr /*main and aside*/
+      auto /*footer*/;
+  }
+
+  nav,
+  aside {
+    margin: 0;
+  }
+}
